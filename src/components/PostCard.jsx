@@ -11,7 +11,7 @@ function PostCard({ $id, featuredImage, title }) {
           <img
             src={appwriteService.previewFile(featuredImage)}
             alt={title}
-            className="rounded-xl"
+            className="rounded-xl max-h-40"
           />
           {console.log("Preview file responded...")}
         </div>
