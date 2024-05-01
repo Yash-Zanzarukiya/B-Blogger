@@ -13,17 +13,13 @@ function Login() {
   const { register, handleSubmit } = useForm();
 
   const login = async (data) => {
-    console.log("Inside Login Method Call");
 
     setError("");
     try {
       const session = await authService.login(data);
       if (session) {
         const userData = await authService.getCurrentUser();
-        console.log("Got user data ");
-        console.log(userData);
         if (userData) {
-          console.log("setting user data ");
           dispatch(authLogin(userData));
           navigate("/");
         }
@@ -58,7 +54,6 @@ function Login() {
           </p>
 
           {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
-          {console.log("Inside Login Component")}
 
           {/* <form onSubmit={handleSubmit(login)} className="mt-8">
             <div className="space-y-5">

@@ -14,7 +14,6 @@ function Signup() {
 
   const create = async (data) => {
     setError("");
-    console.log("Inside create account call...");
     try {
       const userData = await authService.createAccount(data);
       if (userData) {
@@ -29,7 +28,6 @@ function Signup() {
 
   return (
     <div className="flex items-center justify-center">
-      {console.log("Inside Signup Component")}
       <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
         <div className="mb-2 flex justify-center">
           <span className="inline-block w-full max-w-[100px]">

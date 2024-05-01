@@ -5,7 +5,6 @@ function AddPost() {
   return (
     <div className="py-8">
       <Container>
-        {console.log("Inside Add post page...")}
         <PostForm />
       </Container>
     </div>

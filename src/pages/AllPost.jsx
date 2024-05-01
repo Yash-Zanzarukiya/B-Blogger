@@ -6,12 +6,10 @@ function AllPosts() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    console.log("Inside All Post Page...");
     appwriteService.getAllPosts([]).then((posts) => {
       if (posts) {
         setPosts(posts.documents);
       }
-      console.log("Inside All Post Page :: get all posts responded");
     });
   }, []);
 

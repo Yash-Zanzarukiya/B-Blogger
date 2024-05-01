@@ -19,9 +19,7 @@ export default function PostForm({ post }) {
   const userData = useSelector((state) => state.auth.userData);
 
   const submit = async (data) => {
-    console.log("Inside Submit...");
     if (post) {
-      console.log("Inside Post true...");
       const file = data.image[0] ? await appwriteService.uploadFile(data.image[0]) : null;
 
       if (file) {
@@ -37,17 +35,12 @@ export default function PostForm({ post }) {
         navigate(`/post/${dbPost.$id}`);
       }
     } else {
-      console.log("Inside Post false...");
       const file = await appwriteService.uploadFile(data.image[0]);
-      console.log("Inside All Post Page :: Upload FIles :: Responded");
 
       if (file) {
         const fileId = file.$id;
         data.featuredImage = fileId;
-        console.log("Creating post");
-        console.log(userData);
         const dbPost = await appwriteService.createPost({ ...data, userId: userData.$id });
-        console.log("Creating post :: responded");
 
         if (dbPost) {
           navigate(`/post/${dbPost.$id}`);
@@ -80,7 +73,6 @@ export default function PostForm({ post }) {
   return (
     <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
       <div className="w-2/3 px-2">
-        {console.log("Inside Post Form")}
         <Input
           label="Title :"
           placeholder="Title"

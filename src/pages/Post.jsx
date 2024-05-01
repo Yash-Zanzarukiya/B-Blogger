@@ -9,7 +9,6 @@ export default function Post() {
   const [post, setPost] = useState({ postContent: null, isAuthor: null });
   const { slug } = useParams();
   const navigate = useNavigate();
-
   const userData = useSelector((state) => state.auth.userData);
 
   useEffect(() => {
@@ -36,7 +35,7 @@ export default function Post() {
   };
 
   return post.postContent ? (
-    <div className="py-8">
+    <div className="py-8 px-36">
       <Container>
         <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
           <img
@@ -59,7 +58,7 @@ export default function Post() {
         </div>
         <div className="w-full mb-6">
           <hr />
-          <h1 className="text-3xl font-bold my-4">{post.postContent.title}</h1>
+          <h1 className="text-3xl text-center font-bold my-4">{post.postContent.title}</h1>
           <hr />
         </div>
         <div className="browser-css text-2xl">{parse(post.postContent.content)}</div>

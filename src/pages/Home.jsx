@@ -9,22 +9,20 @@ function Home() {
   const authStatus = useSelector((state) => state.auth.status);
 
   useEffect(() => {
-    console.log("Inside Home Page use effect get all posts...");
     appwriteService.getAllPosts().then((posts) => {
       if (posts) {
         setPosts(posts.documents);
       }
-      console.log("Responded...");
     });
   }, []);
 
   if (!authStatus) {
     return (
-      <div className="w-full py-8 mt-4 text-center">
+      <div className="w-full h-full flex items-center justify-center py-8 mt-4 text-center">
         <Container>
-          <div className="flex flex-wrap">
-            <div className="p-2 w-full">
-              <h1 className="text-2xl ">
+          <div className="flex flex-wrap items-center justify-center align-middle">
+            <div className="p-2 w-full flex items-center justify-center">
+              <h1 className="text-3xl ">
                 <Link to={"/login"} className="font-bold text-blue-800 hover:text-blue-500">
                   Login
                 </Link>{" "}
